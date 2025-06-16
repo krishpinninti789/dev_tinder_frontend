@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Body from "./Body";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Feed from "./Feed";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Body />}>
             <Route path="/login" element={<Login />} />
+            <Route path="/feed" element={<Feed />} />
           </Route>
         </Routes>
       </BrowserRouter>

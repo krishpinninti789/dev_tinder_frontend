@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const user = useSelector((store) => store.user);
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="flex-1">
@@ -12,6 +14,8 @@ const Header = () => {
           placeholder="Search"
           className="input input-bordered w-24 md:w-auto"
         />
+
+        <h1>Hi {user?.firstName || " Guest"}</h1>
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
