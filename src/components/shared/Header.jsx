@@ -1,7 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeUser } from "../../utils/userSlice";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../../utils/constants";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const navigator = useNavigate();
+
+  const handleLogout = async () => {
+    await axios.post(BASE_URL + "/logout", {}, { withCredentials: true });
+
+    dispatch(removeUser());
+    navigator("/login");
+  };
+
   const user = useSelector((store) => store.user);
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -43,7 +57,7 @@ const Header = () => {
               <a>Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <a onClick={handleLogout}>Logout</a>
             </li>
           </ul>
         </div>
