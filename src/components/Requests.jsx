@@ -44,7 +44,7 @@ const Requests = () => {
       <h1 className="text-bold text-white text-3xl">Connection Requests</h1>
 
       {requests.map((request) => {
-        const { _id, firstName, lastName, photoUrl, age, gender, about } =
+        const { _id, firstName, lastName, age, gender, bio } =
           request.fromUserId;
 
         return (
@@ -64,7 +64,7 @@ const Requests = () => {
                 {firstName + " " + lastName}
               </h2>
               {age && gender && <p>{age + ", " + gender}</p>}
-              <p>{about}</p>
+              <p>{bio}</p>
             </div>
             <div>
               <button
