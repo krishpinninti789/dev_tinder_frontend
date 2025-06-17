@@ -6,11 +6,15 @@ import Header from "./components/shared/Header";
 import Footer from "./components/shared/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
-import Body from "./Body";
+
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-import Feed from "./Feed";
+
 import Profile from "./components/Profile";
+import Body from "./components/Body";
+import Feed from "./components/Feed";
+import Connections from "./components/Connections";
+import Requests from "./components/Requests";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +27,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/feed" element={<Feed />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/connections" element={<Connections />} />
+            <Route path="/requests" element={<Requests />} />
           </Route>
         </Routes>
       </BrowserRouter>
