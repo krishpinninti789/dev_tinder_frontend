@@ -5,11 +5,7 @@ const UserCard = (user) => {
   return (
     <div className="card bg-base-100 w-96 shadow-sm">
       <figure className="px-10 pt-10">
-        <img
-          src="../../public/fallback-profile.jpg"
-          alt="Shoes"
-          className="rounded-xl"
-        />
+        <img src="/fallback-profile.jpg" alt="Shoes" className="rounded-xl" />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className=" text-white">{firstName + " " + lastName}</h2>
