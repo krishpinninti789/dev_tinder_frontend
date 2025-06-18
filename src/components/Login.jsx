@@ -3,8 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
+import SignIn from "./SignIn";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -104,6 +105,7 @@ const Login = () => {
           >
             Login
           </button>
+          <Link to="/signin">New User? SignIn</Link>
         </div>
       </div>
     </div>
