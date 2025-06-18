@@ -15,7 +15,7 @@ import Body from "./components/Body";
 import Feed from "./components/Feed";
 import Connections from "./components/Connections";
 import Requests from "./components/Requests";
-import SignIn from "./components/SignIn";
+import SingUp from "./components/SignUp";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,7 +30,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/connections" element={<Connections />} />
             <Route path="/requests" element={<Requests />} />
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SingUp />} />
           </Route>
         </Routes>
       </BrowserRouter>

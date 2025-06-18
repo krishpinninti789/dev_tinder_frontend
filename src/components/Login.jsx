@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
-import SignIn from "./SignIn";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,8 +27,8 @@ const Login = () => {
     }
   };
 
-  const [email, setEmail] = useState("kumar@gmail.com");
-  const [password, setPassword] = useState("Kumar@123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="card bg-black w-96 shadow-sm">
@@ -105,7 +104,7 @@ const Login = () => {
           >
             Login
           </button>
-          <Link to="/signin">New User? SignIn</Link>
+          <Link to="/signup">New User? SingUp</Link>
         </div>
       </div>
     </div>

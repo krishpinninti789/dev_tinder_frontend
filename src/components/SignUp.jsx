@@ -7,9 +7,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
 import Login from "./Login";
 
-const SignIn = () => {
+const SingUp = () => {
   const navigate = useNavigate();
-  const handleSignIn = async () => {
+  const [showToast, setShowToast] = useState(false);
+
+  const handleSingUp = async () => {
     try {
       const res = await axios.post(
         BASE_URL + "/signup",
@@ -23,8 +25,11 @@ const SignIn = () => {
         },
         { withCredentials: true }
       );
-
-      return navigate("/login");
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+        return navigate("/login");
+      }, 3000);
     } catch (err) {
       throw new Error(err);
     }
@@ -39,7 +44,7 @@ const SignIn = () => {
     <div className="flex items-center justify-center h-screen">
       <div className="card bg-black w-96 shadow-sm">
         <div className="card-body flex flex-col">
-          <h2 className="card-title justify-center text-2xl">SigIn</h2>
+          <h2 className="card-title justify-center text-2xl">SingUp</h2>
           <h1>Firstname</h1>
           <label className="input validator">
             <svg
@@ -209,15 +214,22 @@ const SignIn = () => {
           <div className="card-actions justify-end"></div>
           <button
             className="bg-gray-400 cursor-pointer text-black rounded-md p-3"
-            onClick={handleSignIn}
+            onClick={handleSingUp}
           >
-            SignIn
+            SingUp
           </button>
           <Link to="/login">Already have an Account? Login</Link>
         </div>
       </div>
+      {showToast && (
+        <div className="toast toast-top toast-center">
+          <div className="alert alert-success">
+            <span>User registered successfully.</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default SignIn;
+export default SingUp;
